@@ -29,5 +29,9 @@
     "JSONStream": "~0.6.4",
     "supertest": "~0.7.1",
     "through": "~2.3.4"
+  },
+  "dependencies": {
+    "negotiator": "~0.2.7",
+    "mime": "~1.2.11"
   }
 }
