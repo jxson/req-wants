@@ -1,6 +1,4 @@
 
-
-
 # req-wants
 
 [![NPM](https://nodei.co/npm/req-wants.png)](https://nodei.co/npm/req-wants/)
@@ -8,6 +6,10 @@
 An http request decorator for simplified content negotiation.
 
 [![build status](https://secure.travis-ci.org/jxson/req-wants.png)](http://travis-ci.org/jxson/req-wants) [![Dependency Status](https://david-dm.org/jxson/req-wants.png)](https://david-dm.org/req-wants/beardo)
+
+I have been working on a project/ blog post that explains how not to use large frameworks when developing node.js http servers. Having tight control in your routes around content negotiation is one of the main reasons I prefer to avoid frameworks in general.
+
+This module makes it easy to see what is happening in your code at the point you decide how you are going to respond and what `content-type` you are going to respond with.
 
 # EXAMPLE
 
@@ -33,6 +35,8 @@ An http request decorator for simplified content negotiation.
     }
 
     }).listen(1337)
+
+I think it's important to note that this decorator has seen several incarnations over several production projects and most of the code was initially borrowed from node-restify's req.accepts method. I think it could be a lot better though, maybe you could [help out](https://github.com/jxson/req-wants)?
 
 # DEVELOPMENT
 
