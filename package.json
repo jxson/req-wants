@@ -1,0 +1,33 @@
+{
+  "name": "req-wants",
+  "version": "0.0.0",
+  "description": "An http request decorator for simplified content negotiation.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/test-*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jxson/req-wants.git"
+  },
+  "keywords": [
+    "http",
+    "request",
+    "content",
+    "negotiation",
+    "accept"
+  ],
+  "author": "Jason Campbell <jason@js.la>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jxson/req-wants/issues"
+  },
+  "devDependencies": {
+    "JSONStream": "~0.6.4",
+    "supertest": "~0.7.1",
+    "through": "~2.3.4"
+  }
+}
