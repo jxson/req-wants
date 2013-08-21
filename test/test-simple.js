@@ -45,9 +45,18 @@ describe('req.wants(type)', function(){
         done()
       })
     })
-  })
 
-  describe('*/*', function(){
-    //...
+    it('handles missing accept with no extname', function(done){
+      request(server)
+      .get('/')
+      .expect(200)
+      .end(function(err, res){
+        if (err) return done(err)
+
+        assert.ok(res.body['*'])
+
+        done()
+      })
+    })
   })
 })

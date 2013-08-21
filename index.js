@@ -7,17 +7,30 @@ var Negotiator = require('negotiator')
 
 function decorate(req, res) {
   var negotiator = new Negotiator(req)
-    , types = negotiator.preferredMediaTypes() || []
+    , types = negotiator.preferredMediaTypes()
     , extname = path.extname(req.url)
+
+  // treat undefined accept types the same as allow everything
+  if (types.length === 0) types = [ '*/*' ]
 
   return wants
 
   function wants(type){
-    if (types.length === 0 && extname) {
-      return mime.lookup(type) === mime.lookup(extname)
-    }
+    // is there a normal match
+    if (contains(types, mime.lookup(type))) return true
 
-    return contains(types, mime.lookup(type))
+    // do we have a match against the extname?
+    if (mime.lookup(type) === mime.lookup(extname)) return true
+
+    // catch all kinda nice for default responses like
+    //
+    //     if (req.wants('html') || req.wants('*')) {
+    //       res.end('<p>Hi</p>')
+    //     }
+    //
+    if (type === '*' && contains(types, '*/*')) return true
+
+    return false
   }
 }
 
